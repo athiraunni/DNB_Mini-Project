@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Upload Notices</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script src="js/bootstrapValidator.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body>
+	<!--Navbar-->
+	<nav class="navbar navbar-default navbar-fixed-top" id="nav">
+	<div class="container">
+		<div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+							  <span class="sr-only">Toggle navigation</span>
+							  <span class="icon-bar"></span>
+							  <span class="icon-bar"></span>
+							  <span class="icon-bar"></span> 
+							</button>
+      	  <a class="navbar-brand" href="#">DIGITAL NOTICE-BOARD</a>
+		  
+    	</div>
+
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="">Admin</a></li>
+				<li><a href="">User</a></li>
+				<li><a href="">Student</a></li>
+	        	<li><a href="login.html"><span class="glyphicon glyphicon-user">Login</span></a></li>
+	        </ul>	
+		</div>
+
+	</div>
+</nav>
+	<!--Navbar End-->
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<script>
+	$(document).ready(function() {
+		$('#stud').bootstrapValidator({
+			message: 'This value is not valid',
+			framework: 'bootstrap',
+			feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+			fields: {
+				cpwd: {
+					validators: {
+						identical: {
+							field: 'pwd',
+							message: 'The password and its confirm are not the same'
+						}
+					}
+				},
+				
+			}
+		});
+	});
+	</script>
+	
+	<div class="container-fluid">
+	<form method="post" action="" class="form-horizontal" id="stud" name="stud">
+		<fieldset>
+
+		<!-- Form Name -->
+		<legend style="text-align:center">Student Signup</legend>
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label">Name</label>  
+		  <div class="col-md-4">
+		  <input id="pid" name="pid" type="text" placeholder="Enter Full Name" class="form-control input-md" required>
+		  </div>
+		</div>
+		
+		<!-- Password input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label">Password</label>  
+		  <div class="col-md-4">
+		  <input id="pwd" name="pwd" type="password" placeholder="Enter Password" class="form-control input-md" required>
+		  </div>
+		</div>
+		
+		<!-- Password input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label"> Confirm Password</label>  
+		  <div class="col-md-4">
+		  <input id="cpwd" name="cpwd" type="password" placeholder="Confirm Password" class="form-control input-md" required>
+		  </div>
+		</div>
+		
+		
+		<div class="form-group">
+		  <label class="col-md-4 control-label">Register Number</label>  
+		  <div class="col-md-4">
+		  <input id="pid" name="pid" type="number" placeholder="Enter Register Number" class="form-control input-md" required>
+		  </div>
+		</div>
+		
+		
+		<div class="form-group">
+		  <label class="col-md-4 control-label">Department</label>
+		  <div class="col-md-4">
+			<select id="dept" name="dept" class="form-control" required>
+			  <option value="" selected>Select Department</option>
+			  <option value="aei">AEI</option>
+			  <option value="ce">CE</option>
+			  <option value="cse">CSE</option>
+			  <option value="eee">EEE</option>
+			  <option value="ece">ECE</option>
+			  <option value="me">ME</option>
+			</select>
+		  </div>
+		</div>
+		
+		<div class="form-group">
+		  <label class="col-md-4 control-label">Year</label>
+		  <div class="col-md-4">
+			<select id="yr" name="yr" class="form-control" required>
+			  <option value="" selected>Select Year</option>
+			  <option value="1">First Year</option>
+			  <option value="2">Second Year</option>
+			  <option value="3">Third Year</option>
+			  <option value="4">Final Year</option>
+			</select>
+		  </div>
+		</div>
+		<div class="form-group">
+		  <label class="col-md-4 control-label">Email</label>  
+		  <div class="col-md-4">
+		  <input id="email" name="email" type="email" placeholder="Enter Email" class="form-control input-md" required>
+		  </div>
+		</div>
+		
+		<div class="form-group">
+		  <label class="col-md-4 control-label">Phone Number</label>  
+		  <div class="col-md-4">
+		  <input id="email" name="email" type="number" placeholder="Enter Phone Number" class="form-control input-md" required>
+		  </div>
+		</div>
+		
+		<div class="form-group" style="text-align:center">
+		  <label class="col-md-4 control-label"></label>
+		  <div class="col-md-4">
+			<button id="reg" name="reg" type="submit" class="btn btn-success">Sign Up</button>
+		  </div>
+		</div>
+		</fieldset>
+	</form>
+	</div>
+</body>
+</html>
