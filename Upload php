@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Upload Notices</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body>
+	<br>
+	<br>
+	
+	
+	<div class="container-fluid">
+	<form method="post" action="" class="form-horizontal" enctype="multipart/form-data">
+		<fieldset>
+
+		<!-- Form Name -->
+		<legend style="text-align:center">Upload Notices</legend>
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label">Title</label>  
+		  <div class="col-md-4">
+		  <input id="pid" name="title" type="text" placeholder="Enter title" class="form-control input-md" required="">
+		  </div>
+		</div>
+		<div class="form-group">
+		  <label class="col-md-4 control-label">Desc</label>  
+		  <div class="col-md-4">
+		  <input id="pid" name="desc" type="text" placeholder="Enter title" class="form-control input-md" required="">
+		  </div>
+		</div>
+		
+		<div class="form-group">
+			<label class="col-md-4 control-label">Date</label>
+			 <div class="col-md-4">
+			<input type="date" class="form-control" id="due" name="due" placeholder="Due Date" required>
+			</div>
+		</div>
+
+		<!-- File input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label">Upload Image</label>  
+		  <div class="col-md-4">
+		  <input id="image" name="file" type="file" accept="image/x-png, image/gif, image/jpeg" class="form-control input-md" required="">
+		  </div>
+		</div>
+		
+		<div class="form-group">
+		  <label class="col-md-4 control-label">Department</label>
+		  <div class="col-md-4">
+			<select id="dept" name="dept" class="form-control" required>
+			  <option value="" selected>Select Department</option>
+			  <option value="aei">AEI</option>
+			  <option value="ce">CE</option>
+			  <option value="cse">CSE</option>
+			  <option value="eee">EEE</option>
+			  <option value="ece">ECE</option>
+			  <option value="me">ME</option>
+			</select>
+		  </div>
+		</div>
+		
+		<div class="form-group">
+		  <label class="col-md-4 control-label">Year</label>
+		  <div class="col-md-4">
+			<select id="yr" name="yr" class="form-control" required>
+			  <option value="" selected>Select Year</option>
+			  <option value="1">First Year</option>
+			  <option value="2">Second Year</option>
+			  <option value="3">Third Year</option>
+			  <option value="4">Final Year</option>
+			  <option value="4">Common Notice</option>
+			</select>
+		  </div>
+		</div>
+		
+		<div class="form-group" style="text-align:center">
+		  <label class="col-md-4 control-label"></label>
+		  <div class="col-md-4">
+			<button id="reg" name="reg" type="submit" class="btn btn-success">Upload Notice</button>
+		  </div>
+		</div>
+		</fieldset>
+	</form>
+	</div>
+</body>
+</html>
+<?php
+if(isset($_POST['reg'])){
+	
+$title=$_POST['title'];
+$desc=$_POST['desc'];
+$dat=$_POST['due'];
+$dept=$_POST['dept'];
+$yr=$_POST['yr'];
+
+$target_dir = "uploads/";
+if(isset($_FILES["file"]))
+{		
+		$a=1234;
+		$target_file = $target_dir . basename($_FILES["file"]["type"]);
+		$new_name=$target_dir.$a.basename($_FILES["file"]["name"]);
+		rename($target_file, $new_name);
+	 if (move_uploaded_file($_FILES["file"]["tmp_name"], $new_name)) 
+		{
+        echo "The file ".basename( $_FILES["file"]["name"])." has been uploaded.";
+		}
+	else 
+	{
+        echo "Sorry, there was an error uploading your file.";
+    }
+}
+}
+
+?>
